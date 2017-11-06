@@ -3,18 +3,33 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>memory network (memnn) &amp; end to end memory network (memn2n) &amp; dynamic memory network | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
+  <meta name="keywords" content="deep learning" />
   
   
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  
+  <meta name="description" content="记忆网络（Memory network）虚拟助理在回答单个问句时表现不赖，但是在多轮对话中表现差强人意，以下例子说明我们面临着什么挑战：  Me: Can you find me some restaurants? Assistance: I find a few places within 0.25 mile. The first one is Caffé Opera on Lincoln St">
+<meta name="keywords" content="deep learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Memory network (MemNN) &amp; End to End memory network (MemN2N) &amp; Dynamic memory network">
+<meta property="og:url" content="http://yoursite.com/2017/11/06/test/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="记忆网络（Memory network）虚拟助理在回答单个问句时表现不赖，但是在多轮对话中表现差强人意，以下例子说明我们面临着什么挑战：  Me: Can you find me some restaurants? Assistance: I find a few places within 0.25 mile. The first one is Caffé Opera on Lincoln St">
+<meta property="og:image" content="https://yqfile.alicdn.com/0ec1fa6d28aff9d51ab6e78eda7123334f703012.png">
+<meta property="og:image" content="https://yqfile.alicdn.com/ff326d9766310f657d396a1b842c1f8ca9b28936.png">
+<meta property="og:image" content="https://yqfile.alicdn.com/b94928af7827b3d100e6831c38fa76f9e237768f.png">
+<meta property="og:image" content="https://yqfile.alicdn.com/90cea9061711824f7071e1661d5eecb5364872c6.png">
+<meta property="og:image" content="https://yqfile.alicdn.com/223d41b3a733d068647739db3ca407e66988d75e.png">
+<meta property="og:image" content="https://yqfile.alicdn.com/e9313a24aaed40caa62428a5cd2377f3238ebd43.png">
+<meta property="og:image" content="https://yqfile.alicdn.com/276c84b594b60f8a12bbfb98b4e001a2e905e986.png">
+<meta property="og:updated_time" content="2017-11-06T15:37:50.378Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Memory network (MemNN) &amp; End to End memory network (MemN2N) &amp; Dynamic memory network">
+<meta name="twitter:description" content="记忆网络（Memory network）虚拟助理在回答单个问句时表现不赖，但是在多轮对话中表现差强人意，以下例子说明我们面临着什么挑战：  Me: Can you find me some restaurants? Assistance: I find a few places within 0.25 mile. The first one is Caffé Opera on Lincoln St">
+<meta name="twitter:image" content="https://yqfile.alicdn.com/0ec1fa6d28aff9d51ab6e78eda7123334f703012.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -43,11 +58,13 @@
   <link rel="stylesheet" href="/css/bootstrap.css" >
 
   
-    <link rel="stylesheet" href="/css/home.css" >
+    <link rel="stylesheet" href="/css/dialog.css">
   
 
   
 
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
   
 
   
@@ -60,142 +77,107 @@
 
 
 
-  <body>
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
 
 
-  
-    <header id="header">
-
-	<!-- 背景图模式 -->
-	
-
-    
-      <div id="intrologo" class="intro-logo">
-    
- 
-
-
-    <canvas width="100%" height="100%"></canvas>
-    <script>
-      var c = document.getElementsByTagName('canvas')[0],
-          x = c.getContext('2d'),
-          w = window.innerWidth,
-          h = window.innerHeight,
-          pr = window.devicePixelRatio || 1,
-          f = 90,
-          q,
-          m = Math,
-          r = 0,
-          u = m.PI*2,
-          v = m.cos,
-          z = m.random
-      c.width = w*pr
-      c.height = h*pr
-      x.scale(pr, pr)
-      x.globalAlpha = 0.6
-
-      <!-- 折线Polyline背景 -->
-      
-        function i(){
-            x.clearRect(0,0,w,h)
-            q=[{x:0,y:h*.7+f},{x:0,y:h*.7-f}]
-            while(q[1].x<w+f) d(q[0], q[1])
-        }
-        function d(i,j){   
-            x.beginPath()
-            x.moveTo(i.x, i.y)
-            x.lineTo(j.x, j.y)
-            var k = j.x + (z()*2-0.25)*f,
-                n = y(j.y)
-            x.lineTo(k, n)
-            x.closePath()
-            r-=u/-50
-            x.fillStyle = '#'+(v(r)*127+128<<16 | v(r+u/3)*127+128<<8 | v(r+u/3*2)*127+128).toString(16)
-            x.fill()
-            q[0] = q[1]
-            q[1] = {x:k,y:n}
-        }
-        function y(p){
-            var t = p + (z()*2-1.1)*f
-            return (t>h||t<0) ? y(p) : t
-        }
-        document.getElementById("intrologo").onclick = i
-        document.getElementById("intrologo").ontouchstart = i
-        i()
-
-      <!-- 多边形trianglify背景 -->
-      
-    </script>
-    
-
-    
-      <div id="homelogo" class="homelogo"> 
-    
-
-        
-          <div class="homelogoback" >
-            <h1><a href="#content" id="logo">Hexo</a></h1>
-            <h3></h3>
-            <h5>John Doe</h5>
-            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
-          </div>
-        
-    
-    </div>
-  </div>
-
-  <!-- 自适应主页背景大图 -->
-  
-
- <!-- home_logo_image居中 -->
- 
-    <script>
-        var homelogodiv = document.getElementById("homelogo");
-        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
-          homelogodiv.style.width = document.body.clientWidth + "px";
-          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
-        } else {
-          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
-          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
-        }
-    </script>
-  
-
-  <div class="intro-navigate">
-      <p class="navigater-list">
-        
-          <a id="beautifont" class="main-nav-link" href="/">Startseite</a>
-        
-          <a id="beautifont" class="main-nav-link" href="/archives">Archive</a>
-        
-          <a id="beautifont" class="main-nav-link" href="/categories">Kategorien</a>
-        
-          <a id="beautifont" class="main-nav-link" href="/tags">Tags</a>
-        
-          <a id="beautifont" class="main-nav-link" href="/about">About</a>
-        
-      </p>
-  </div>
-
-</header>
   
   <div id="container">
     <div id="wrap">
       
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Kategorien</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Schreib etwas..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Beiträge',
+            PAGES: 'Seiten',
+            CATEGORIES: 'Kategorien',
+            TAGS: 'Tags',
+            UNTITLED: '(Unbenannt)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;">
-  
-    <article id="post-test"  class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-test" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
       <header class="article-header">
         
   
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/11/06/test/">Memory network (MemNN) &amp; End to End memory network (MemN2N) &amp; Dynamic memory network</a>
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Memory network (MemNN) &amp; End to End memory network (MemN2N) &amp; Dynamic memory network
     </h1>
   
 
@@ -209,6 +191,12 @@
 
       
       
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -406,6 +394,44 @@
     </div>
     <footer class="article-footer">
       
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/WeChanQR.png',
+  alipayImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/AliPayQR.jpg'
+});
+</script>
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/deep-learning/">deep learning</a></li></ul>
@@ -413,67 +439,33 @@
     </footer>
   </div>
   
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-hello-world"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
     
-    
-      <header class="article-header">
-        
+<nav id="article-nav">
   
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/11/06/hello-world/">Hello World</a>
-    </h1>
   
+    <a href="/2017/11/06/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/11/06/hello-world/" class="article-date">
-	  <time datetime="2017-11-05T17:10:01.111Z" itemprop="datePublished">2017-11-06</time>
-	</a>
-
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-    </footer>
-  </div>
   
 </article>
 
 <!-- Table of Contents -->
 
-  
-
-
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Inhalt</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#记忆网络（Memory-network）"><span class="nav-number">1.</span> <span class="nav-text">记忆网络（Memory network）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#存信息于记忆"><span class="nav-number">1.1.</span> <span class="nav-text">存信息于记忆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回答问句（Answering-a-query）"><span class="nav-number">1.2.</span> <span class="nav-text">回答问句（Answering a query）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编码输入（Encoding-the-input）"><span class="nav-number">1.3.</span> <span class="nav-text">编码输入（Encoding the input）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算打分函数（Compute-the-scoring-function）"><span class="nav-number">1.4.</span> <span class="nav-text">计算打分函数（Compute the scoring function）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#边缘损失函数（Margin-loss-function）"><span class="nav-number">1.5.</span> <span class="nav-text">边缘损失函数（Margin loss function）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大记忆网络（Huge-memory-networks）"><span class="nav-number">1.6.</span> <span class="nav-text">大记忆网络（Huge memory networks）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#端到端记忆网络（End-to-End-memory-network-MemN2N）"><span class="nav-number">2.</span> <span class="nav-text">端到端记忆网络（End to End memory network, MemN2N）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#多层（Multiple-layer）"><span class="nav-number">2.1.</span> <span class="nav-text">多层（Multiple layer）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语言模型（Language-model）"><span class="nav-number">2.2.</span> <span class="nav-text">语言模型（Language model）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态记忆网络（Dynamic-memory-network）"><span class="nav-number">3.</span> <span class="nav-text">动态记忆网络（Dynamic memory network）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sentence"><span class="nav-number">3.1.</span> <span class="nav-text">Sentence</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Question-module-q-t-GRU-vt-q-t-1"><span class="nav-number">3.2.</span> <span class="nav-text">Question module $$q_t = GRU(vt, q{t-1})$$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Episodic-memory-module-h-i-t-g-i-tGRU-si-h-i-1-t-1-gi-t-h-i-1-t-其中-s-i-表示第-i-个句子，-h-i-t-表示处理句子-i-第-t-步的隐藏状态，其最后隐藏状态为-m-prime"><span class="nav-number">3.3.</span> <span class="nav-text">Episodic memory module $$h_i^t = g_i^tGRU(si, h{i-1}^t) + (1 - gi^t)h{i-1}^t$$ 其中\(s_i\)表示第\(i\)个句子，\(h_i^t\)表示处理句子\(i\)第\(t\)步的隐藏状态，其最后隐藏状态为\(m^\prime\)</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
 </section>
         
       </div>
-      
-        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
       
       <footer id="footer">
   
@@ -565,9 +557,9 @@
 <script src="/js/scripts.js"></script>
 
 
-  <script src="/js/home.js"></script>
 
 
+  <script src="/js/dialog.js"></script>
 
 
 
@@ -652,6 +644,8 @@
   
   <a id="rocket" href="#top" class=""></a>
   <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
   
 </body>
 </html>
