@@ -3,20 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>莫名的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
   
   
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="莫名的blog">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="莫名的blog">
+<meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="莫名的blog">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="莫名的blog" type="application/atom+xml">
   
 
   
@@ -134,9 +135,9 @@
 
         
           <div class="homelogoback" >
-            <h1><a href="#content" id="logo">Hexo</a></h1>
+            <h1><a href="#content" id="logo">莫名的blog</a></h1>
             <h3></h3>
-            <h5>John Doe</h5>
+            <h5>莫名</h5>
             <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
           </div>
         
@@ -164,11 +165,11 @@
   <div class="intro-navigate">
       <p class="navigater-list">
         
-          <a id="beautifont" class="main-nav-link" href="/">Startseite</a>
+          <a id="beautifont" class="main-nav-link" href="/">Home</a>
         
-          <a id="beautifont" class="main-nav-link" href="/archives">Archive</a>
+          <a id="beautifont" class="main-nav-link" href="/archives">Archives</a>
         
-          <a id="beautifont" class="main-nav-link" href="/categories">Kategorien</a>
+          <a id="beautifont" class="main-nav-link" href="/categories">Categories</a>
         
           <a id="beautifont" class="main-nav-link" href="/tags">Tags</a>
         
@@ -186,6 +187,84 @@
       <div id="content" class="outer">
         
           <section id="main" style="float:none;">
+  
+    <article id="post-RLClassfication"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/12/02/RLClassfication/">RLClassfication</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/12/02/RLClassfication/" class="article-date">
+	  <time datetime="2017-12-02T07:07:41.000Z" itemprop="datePublished">2017-12-02</time>
+	</a>
+
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Reingorcement-Learning"><a href="#Reingorcement-Learning" class="headerlink" title="Reingorcement Learning"></a>Reingorcement Learning</h1><h2 id="分类1"><a href="#分类1" class="headerlink" title="分类1"></a>分类1</h2><h3 id="model-feel-rl-不理解环境"><a href="#model-feel-rl-不理解环境" class="headerlink" title="model-feel rl 不理解环境"></a>model-feel rl 不理解环境</h3><ul>
+<li>Q Learning</li>
+<li>Sarsa</li>
+<li>Policy Cradients</li>
+</ul>
+<h3 id="model-based-rl-理解环境"><a href="#model-based-rl-理解环境" class="headerlink" title="model-based rl 理解环境"></a>model-based rl 理解环境</h3><p>比model-free多了一个虚拟环境，model-free中的方法也适用</p>
+<h2 id="分类2"><a href="#分类2" class="headerlink" title="分类2"></a>分类2</h2><h3 id="Policy-based-RL-基于概率"><a href="#Policy-based-RL-基于概率" class="headerlink" title="Policy-based RL 基于概率"></a>Policy-based RL 基于概率</h3><ul>
+<li>policy gradients et ta.</li>
+</ul>
+<h3 id="Value-Based-RL-基于价值"><a href="#Value-Based-RL-基于价值" class="headerlink" title="Value-Based RL 基于价值"></a>Value-Based RL 基于价值</h3><p>对连续的动作无能为力</p>
+<ul>
+<li>Q learning</li>
+<li>Sarsa</li>
+</ul>
+<h3 id="Actor-Critic"><a href="#Actor-Critic" class="headerlink" title="Actor-Critic"></a>Actor-Critic</h3><p>Actor基于概率生成动作，Critic根据给定的动作计算价值</p>
+<h2 id="分类3"><a href="#分类3" class="headerlink" title="分类3"></a>分类3</h2><h3 id="Monte-Carlo-update-回合更新"><a href="#Monte-Carlo-update-回合更新" class="headerlink" title="Monte-Carlo update 回合更新"></a>Monte-Carlo update 回合更新</h3><p>游戏开始-&gt;游戏结束-&gt;更新</p>
+<ul>
+<li>基础版 policy gradients</li>
+<li>Monte-Carlo Learning</li>
+</ul>
+<h3 id="Temporal-Difference-update"><a href="#Temporal-Difference-update" class="headerlink" title="Temporal-Difference update"></a>Temporal-Difference update</h3><p>游戏开始-&gt;更新-&gt;更新-&gt;…-&gt;游戏结束<br>每一步都会更新，边玩边更新，更有效率，大部分增强学习算法都是单步更新方法</p>
+<ul>
+<li>Q Learning</li>
+<li>Sarsa</li>
+<li>升级版Policy Gradients</li>
+</ul>
+<h2 id="分类4"><a href="#分类4" class="headerlink" title="分类4"></a>分类4</h2><h3 id="On-Policy-在线学习"><a href="#On-Policy-在线学习" class="headerlink" title="On-Policy 在线学习"></a>On-Policy 在线学习</h3><p>自己玩，边玩边学习</p>
+<ul>
+<li>Sarsa</li>
+<li>Sarsa($\lambda$)</li>
+</ul>
+<h3 id="Off-Policy-离线学习"><a href="#Off-Policy-离线学习" class="headerlink" title="Off-Policy 离线学习"></a>Off-Policy 离线学习</h3><p>既可以自己玩，也可以看着别人玩</p>
+<ul>
+<li>Q Learning</li>
+<li>Deep Q Network</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RL/">RL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Reingorcement-Learning/">Reingorcement Learning</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
   
     <article id="post-MemNN"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
@@ -267,8 +346,11 @@
 </tr>
 </tbody>
 </table>
-<h2 id="回答问句（Answering-a-query）"><a href="#回答问句（Answering-a-query）" class="headerlink" title="回答问句（Answering a query）"></a>回答问句（Answering a query）</h2><p>回答一个问句\(q\)，首先通过打分函数\(s<em>0\)计算出与\(q\)最相关的句子\(m</em>{01}\)。然后将句子\(m<em>{01}\)与\(q\)结合起来形成新的问句\([q, m</em>{01}]\)，并且定位最高分的下一个句子\(m<em>{01}\)。最后形成另外一个问句\([q, m</em>{01}, m_{02}]\)。此时我们并不是用该问句去查询下一个句，而是通过另一个打分函数定位一个词\(w\)。以上述例子来说明该过程。</p>
-<p>回答问句\(q\)“where is the milk now?”，我们基于以下式子计算第一个推断：$$o<em>1 = \mathop{\arg\min}</em>{i=1,…,N}s_0(q, m_i)$$其中，\(s_0\)是计算输入\(x\)与\(m_i\)匹配分数的函数，\(o<em>1\)是记忆\(m\)中最佳匹配索引。这里\(m</em>{01}\)是第一个推断中最好的匹配句：“Joe left the milk.”。<br>然后，基于\([q: “where is the milk now”, m_{01}: “Joe left the milk.”]\)$$o<em>2<br> = \mathop{\arg\max}</em>{i=1,…,N}s<em>0([q, m</em>{01}], m<em>i)$$其中\(m</em>{02}\)是“Joe traveled to the office.”。<br>结合问句和推导的结果记为\(o\)：$$o = [q, m<em>{01}, m</em>{02}] = [“where is the milk now”,” Joe left the milk.”,” Joe travelled to the office.”]$$生成最终的答复\(r\)：$$r = \mathop{\arg\max}_{w \in W}s<em>r([q, m</em>{01}, m_{02}], w)$$其中\(W\)是字典中的所有词，\(s<em>r\)是另外一个计算\([q, m</em>{01}, m_{02}]\)和词\(w\)的匹配度。在我们的例子中，最后的回答\(r\)是“office”。</p>
+<h2 id="回答问句（Answering-a-query）"><a href="#回答问句（Answering-a-query）" class="headerlink" title="回答问句（Answering a query）"></a>回答问句（Answering a query）</h2><p>回答一个问句\(q\)，首先通过打分函数\(s_{0}\)计算出与\(q\)最相关的句子\(m_{01}\)。然后将句子\(m_{01}\)与\(q\)结合起来形成新的问句\([q, m_{01}]\)，并且定位最高分的下一个句子\(m_{01}\)。最后形成另外一个问句\([q, m_{01}, m_{02}]\)。此时我们并不是用该问句去查询下一个句，而是通过另一个打分函数定位一个词\(w\)。以上述例子来说明该过程。</p>
+<p>回答问句\(q\)“where is the milk now?”，我们基于以下式子计算第一个推断：</p>
+<p>$$ \mathop{\arg\min}_{i=1,…,N} $$</p>
+<p>$$ o<em>{1} = \mathop{\arg\min}</em>{i=1,…,N}s<em>{0}(q, m</em>{i}) $$</p>
+<p>其中，\(s_{0}\)是计算输入\(x\)与\(m_{i}\)匹配分数的函数，\(o_{1}\)是记忆\(m\)中最佳匹配索引。这里\(m_{01}\)是第一个推断中最好的匹配句：“Joe left the milk.”。<br>然后，基于\([q: “where is the milk now”, m_{01}: “Joe left the milk.”]\)$$o<em>2<br> = \mathop{\arg\max}</em>{i=1,…,N}s<em>0([q, m</em>{01}], m<em>i)$$其中\(m</em>{02}\)是“Joe traveled to the office.”。<br>结合问句和推导的结果记为\(o\)：$$o = [q, m<em>{01}, m</em>{02}] = [“where is the milk now”,” Joe left the milk.”,” Joe travelled to the office.”]$$生成最终的答复\(r\)：$$r = \mathop{\arg\max}_{w \in W}s<em>r([q, m</em>{01}, m_{02}], w)$$其中\(W\)是字典中的所有词，\(s<em>r\)是另外一个计算\([q, m\</em>{01}, m_{02}]\)和词\(w\)的匹配度。在我们的例子中，最后的回答\(r\)是“office”。</p>
 <h2 id="编码输入（Encoding-the-input）"><a href="#编码输入（Encoding-the-input）" class="headerlink" title="编码输入（Encoding the input）"></a>编码输入（Encoding the input）</h2><p>我们利用词袋法（bags of words）表示输入文本。首先，我们以大小为\(\left|W\right|\)开始。<br>用词袋法对问句“where is the milk now”编码：</p>
 <table>
 <thead>
@@ -420,55 +502,6 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-hello-world"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/11/06/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/11/06/hello-world/" class="article-date">
-	  <time datetime="2017-11-05T17:10:01.111Z" itemprop="datePublished">2017-11-06</time>
-	</a>
-
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
 
 
 </section>
@@ -483,7 +516,7 @@
   <div class="container">
       	<div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
-	      <p id="copyRightEn">Copyright &copy; 2013 - 2017 Hexo All Rights Reserved.</p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2017 莫名的blog All Rights Reserved.</p>
 	      
 	      
     		<p class="busuanzi_uv">
@@ -634,10 +667,10 @@
         </div>
          <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
           <div class="panel-body">
-            Hexo
+            莫名的blog
           </div>
           <div class="panel-body">
-            Copyright © 2017 John Doe All Rights Reserved.
+            Copyright © 2017 莫名 All Rights Reserved.
           </div>
         </div>
       </div>

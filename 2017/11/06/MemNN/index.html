@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>memory network (memnn) &amp; end to end memory network (memn2n) &amp; dynamic memory network | Hexo</title>
+  <title>memory network (memnn) &amp; end to end memory network (memn2n) &amp; dynamic memory network | 莫名的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="deep learning" />
@@ -16,8 +16,9 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Memory network (MemNN) &amp; End to End memory network (MemN2N) &amp; Dynamic memory network">
 <meta property="og:url" content="http://yoursite.com/2017/11/06/MemNN/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="莫名的blog">
 <meta property="og:description" content="记忆网络（Memory network）虚拟助理在回答单个问句时表现不赖，但是在多轮对话中表现差强人意，以下例子说明我们面临着什么挑战：  Me: Can you find me some restaurants? Assistance: I find a few places within 0.25 mile. The first one is Caffé Opera on Lincoln St">
+<meta property="og:locale" content="en">
 <meta property="og:image" content="https://yqfile.alicdn.com/0ec1fa6d28aff9d51ab6e78eda7123334f703012.png">
 <meta property="og:image" content="https://yqfile.alicdn.com/ff326d9766310f657d396a1b842c1f8ca9b28936.png">
 <meta property="og:image" content="https://yqfile.alicdn.com/b94928af7827b3d100e6831c38fa76f9e237768f.png">
@@ -25,13 +26,13 @@
 <meta property="og:image" content="https://yqfile.alicdn.com/223d41b3a733d068647739db3ca407e66988d75e.png">
 <meta property="og:image" content="https://yqfile.alicdn.com/e9313a24aaed40caa62428a5cd2377f3238ebd43.png">
 <meta property="og:image" content="https://yqfile.alicdn.com/276c84b594b60f8a12bbfb98b4e001a2e905e986.png">
-<meta property="og:updated_time" content="2017-11-06T15:39:43.941Z">
+<meta property="og:updated_time" content="2017-11-06T16:09:04.487Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Memory network (MemNN) &amp; End to End memory network (MemN2N) &amp; Dynamic memory network">
 <meta name="twitter:description" content="记忆网络（Memory network）虚拟助理在回答单个问句时表现不赖，但是在多轮对话中表现差强人意，以下例子说明我们面临着什么挑战：  Me: Can you find me some restaurants? Assistance: I find a few places within 0.25 mile. The first one is Caffé Opera on Lincoln St">
 <meta name="twitter:image" content="https://yqfile.alicdn.com/0ec1fa6d28aff9d51ab6e78eda7123334f703012.png">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="莫名的blog" type="application/atom+xml">
   
 
   
@@ -108,11 +109,11 @@
             <div class="navbar-collapse collapse">
               <ul class="hnav navbar-nav">
                 
-                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/categories">Kategorien</a> </li>
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
                 
                   <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
                 
@@ -128,7 +129,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Schreib etwas..." />
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -140,11 +141,11 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Beiträge',
-            PAGES: 'Seiten',
-            CATEGORIES: 'Kategorien',
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
             TAGS: 'Tags',
-            UNTITLED: '(Unbenannt)',
+            UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -255,8 +256,11 @@
 </tr>
 </tbody>
 </table>
-<h2 id="回答问句（Answering-a-query）"><a href="#回答问句（Answering-a-query）" class="headerlink" title="回答问句（Answering a query）"></a>回答问句（Answering a query）</h2><p>回答一个问句\(q\)，首先通过打分函数\(s<em>0\)计算出与\(q\)最相关的句子\(m</em>{01}\)。然后将句子\(m<em>{01}\)与\(q\)结合起来形成新的问句\([q, m</em>{01}]\)，并且定位最高分的下一个句子\(m<em>{01}\)。最后形成另外一个问句\([q, m</em>{01}, m_{02}]\)。此时我们并不是用该问句去查询下一个句，而是通过另一个打分函数定位一个词\(w\)。以上述例子来说明该过程。</p>
-<p>回答问句\(q\)“where is the milk now?”，我们基于以下式子计算第一个推断：$$o<em>1 = \mathop{\arg\min}</em>{i=1,…,N}s_0(q, m_i)$$其中，\(s_0\)是计算输入\(x\)与\(m_i\)匹配分数的函数，\(o<em>1\)是记忆\(m\)中最佳匹配索引。这里\(m</em>{01}\)是第一个推断中最好的匹配句：“Joe left the milk.”。<br>然后，基于\([q: “where is the milk now”, m_{01}: “Joe left the milk.”]\)$$o<em>2<br> = \mathop{\arg\max}</em>{i=1,…,N}s<em>0([q, m</em>{01}], m<em>i)$$其中\(m</em>{02}\)是“Joe traveled to the office.”。<br>结合问句和推导的结果记为\(o\)：$$o = [q, m<em>{01}, m</em>{02}] = [“where is the milk now”,” Joe left the milk.”,” Joe travelled to the office.”]$$生成最终的答复\(r\)：$$r = \mathop{\arg\max}_{w \in W}s<em>r([q, m</em>{01}, m_{02}], w)$$其中\(W\)是字典中的所有词，\(s<em>r\)是另外一个计算\([q, m</em>{01}, m_{02}]\)和词\(w\)的匹配度。在我们的例子中，最后的回答\(r\)是“office”。</p>
+<h2 id="回答问句（Answering-a-query）"><a href="#回答问句（Answering-a-query）" class="headerlink" title="回答问句（Answering a query）"></a>回答问句（Answering a query）</h2><p>回答一个问句\(q\)，首先通过打分函数\(s_{0}\)计算出与\(q\)最相关的句子\(m_{01}\)。然后将句子\(m_{01}\)与\(q\)结合起来形成新的问句\([q, m_{01}]\)，并且定位最高分的下一个句子\(m_{01}\)。最后形成另外一个问句\([q, m_{01}, m_{02}]\)。此时我们并不是用该问句去查询下一个句，而是通过另一个打分函数定位一个词\(w\)。以上述例子来说明该过程。</p>
+<p>回答问句\(q\)“where is the milk now?”，我们基于以下式子计算第一个推断：</p>
+<p>$$ \mathop{\arg\min}_{i=1,…,N} $$</p>
+<p>$$ o<em>{1} = \mathop{\arg\min}</em>{i=1,…,N}s<em>{0}(q, m</em>{i}) $$</p>
+<p>其中，\(s_{0}\)是计算输入\(x\)与\(m_{i}\)匹配分数的函数，\(o_{1}\)是记忆\(m\)中最佳匹配索引。这里\(m_{01}\)是第一个推断中最好的匹配句：“Joe left the milk.”。<br>然后，基于\([q: “where is the milk now”, m_{01}: “Joe left the milk.”]\)$$o<em>2<br> = \mathop{\arg\max}</em>{i=1,…,N}s<em>0([q, m</em>{01}], m<em>i)$$其中\(m</em>{02}\)是“Joe traveled to the office.”。<br>结合问句和推导的结果记为\(o\)：$$o = [q, m<em>{01}, m</em>{02}] = [“where is the milk now”,” Joe left the milk.”,” Joe travelled to the office.”]$$生成最终的答复\(r\)：$$r = \mathop{\arg\max}_{w \in W}s<em>r([q, m</em>{01}, m_{02}], w)$$其中\(W\)是字典中的所有词，\(s<em>r\)是另外一个计算\([q, m\</em>{01}, m_{02}]\)和词\(w\)的匹配度。在我们的例子中，最后的回答\(r\)是“office”。</p>
 <h2 id="编码输入（Encoding-the-input）"><a href="#编码输入（Encoding-the-input）" class="headerlink" title="编码输入（Encoding the input）"></a>编码输入（Encoding the input）</h2><p>我们利用词袋法（bags of words）表示输入文本。首先，我们以大小为\(\left|W\right|\)开始。<br>用词袋法对问句“where is the milk now”编码：</p>
 <table>
 <thead>
@@ -404,8 +408,8 @@ var a = new Donate({
   title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
   btnText: 'Donate', // 可选参数，打赏按钮文字
   el: document.getElementById('donation_div'),
-  wechatImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/WeChanQR.png',
-  alipayImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/AliPayQR.jpg'
+  wechatImage: 'https://github.com/yingyuankai/yingyuankai.github.io/tree/master/css/images/WechatQR.jpg',
+  alipayImage: 'https://github.com/yingyuankai/yingyuankai.github.io/tree/master/css/images/AliPayQR.jpg'
 });
 </script>
       
@@ -444,11 +448,15 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-  
-    <a href="/2017/11/06/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2017/12/02/RLClassfication/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          RLClassfication
+        
+      </div>
     </a>
+  
   
 </nav>
 
@@ -459,7 +467,7 @@ var a = new Donate({
 
   <aside id="toc-sidebar">
     <div id="toc" class="toc-article">
-    <strong class="toc-title">Inhalt</strong>
+    <strong class="toc-title">Contents</strong>
     
         <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#记忆网络（Memory-network）"><span class="nav-number">1.</span> <span class="nav-text">记忆网络（Memory network）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#存信息于记忆"><span class="nav-number">1.1.</span> <span class="nav-text">存信息于记忆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回答问句（Answering-a-query）"><span class="nav-number">1.2.</span> <span class="nav-text">回答问句（Answering a query）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编码输入（Encoding-the-input）"><span class="nav-number">1.3.</span> <span class="nav-text">编码输入（Encoding the input）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算打分函数（Compute-the-scoring-function）"><span class="nav-number">1.4.</span> <span class="nav-text">计算打分函数（Compute the scoring function）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#边缘损失函数（Margin-loss-function）"><span class="nav-number">1.5.</span> <span class="nav-text">边缘损失函数（Margin loss function）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大记忆网络（Huge-memory-networks）"><span class="nav-number">1.6.</span> <span class="nav-text">大记忆网络（Huge memory networks）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#端到端记忆网络（End-to-End-memory-network-MemN2N）"><span class="nav-number">2.</span> <span class="nav-text">端到端记忆网络（End to End memory network, MemN2N）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#多层（Multiple-layer）"><span class="nav-number">2.1.</span> <span class="nav-text">多层（Multiple layer）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语言模型（Language-model）"><span class="nav-number">2.2.</span> <span class="nav-text">语言模型（Language model）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态记忆网络（Dynamic-memory-network）"><span class="nav-number">3.</span> <span class="nav-text">动态记忆网络（Dynamic memory network）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sentence"><span class="nav-number">3.1.</span> <span class="nav-text">Sentence</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Question-module"><span class="nav-number">3.2.</span> <span class="nav-text">Question module</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Episodic-memory-module"><span class="nav-number">3.3.</span> <span class="nav-text">Episodic memory module</span></a></li></ol></li></ol>
     
@@ -475,7 +483,7 @@ var a = new Donate({
   <div class="container">
       	<div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
-	      <p id="copyRightEn">Copyright &copy; 2013 - 2017 Hexo All Rights Reserved.</p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2017 莫名的blog All Rights Reserved.</p>
 	      
 	      
     		<p class="busuanzi_uv">
@@ -626,10 +634,10 @@ var a = new Donate({
         </div>
          <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
           <div class="panel-body">
-            Hexo
+            莫名的blog
           </div>
           <div class="panel-body">
-            Copyright © 2017 John Doe All Rights Reserved.
+            Copyright © 2017 莫名 All Rights Reserved.
           </div>
         </div>
       </div>
