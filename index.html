@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   <title>莫名的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -54,7 +54,7 @@
   
   
   
-    <link rel="stylesheet" href="/css/vdonate.css" >
+    <link rel="stylesheet" href="/css/vdonate.css" ><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 </head>
@@ -65,7 +65,7 @@
 
 
   
-    <header id="header">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header id="header">
 
 	<!-- 背景图模式 -->
 	
@@ -187,6 +187,64 @@
       <div id="content" class="outer">
         
           <section id="main" style="float:none;">
+  
+    <article id="post-Q-Learning"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/12/03/Q-Learning/">Q Learning</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/12/03/Q-Learning/" class="article-date">
+	  <time datetime="2017-12-03T07:21:09.000Z" itemprop="datePublished">2017-12-03</time>
+	</a>
+
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+<h1 id="Q-Learningg"><a href="#Q-Learningg" class="headerlink" title="Q Learningg"></a>Q Learningg</h1><p>该算法会构建一个Q表，行为状态s,列为行为a,其中每一项的值为对应状态下选择相应行为的回报，该回报通过动态规划计算而来。</p>
+<p>每一回合，给定一个初始状态，从该状态开始，选择行为，转移到另一个状态，再选择行为，依次类推，直到遇到结束状态本回合结束。</p>
+<p>每次选择行为时，该算法会根据给定的一个概率$\varepsilon$,随机选择行为或选择未来回报最大的行为。</p>
+<p>选择行为以后，会根据env返回的回报和状态，更新Q表和agent的当前状态。</p>
+<p>其中更新Q表的公式如下：</p>
+$$ Q(s, a) \leftarrow Q(s, a) + \alpha [r + \gamma \displaystyle  \max_{{a}'}Q({s}', {a}') - Q(s, a)] $$
+<p>其中：</p>
+<ul>
+<li>$Q(s, a)$为状态为$s$，选择行为$a$是的回报值；</li>
+<li>$\alpha$为learning rate；</li>
+<li>$r + \gamma \displaystyle  \max_{{a}'}Q({s}', {a}')$为实际回报；</li>
+<li>$Q(s, a)$为预测回报；</li>
+</ul>
+<p><img src="https://morvanzhou.github.io/static/results/reinforcement-learning/2-1-1.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
   
     <article id="post-RLClassfication"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
@@ -692,5 +750,37 @@
   <a id="rocket" href="#top" class=""></a>
   <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
   
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 </body>
 </html>
