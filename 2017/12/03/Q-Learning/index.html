@@ -20,7 +20,7 @@
 <meta property="og:description" content="Q Learningg该算法会构建一个Q表，行为状态s,列为行为a,其中每一项的值为对应状态下选择相应行为的回报，该回报通过动态规划计算而来。 每一回合，给定一个初始状态，从该状态开始，选择行为，转移到另一个状态，再选择行为，依次类推，直到遇到结束状态本回合结束。 每次选择行为时，该算法会根据给定的一个概率$\varepsilon$,随机选择行为或选择未来回报最大的行为。 选择行为以后，会根据">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://morvanzhou.github.io/static/results/reinforcement-learning/2-1-1.png">
-<meta property="og:updated_time" content="2017-12-03T15:59:41.823Z">
+<meta property="og:updated_time" content="2017-12-03T16:01:06.164Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Q Learning">
 <meta name="twitter:description" content="Q Learningg该算法会构建一个Q表，行为状态s,列为行为a,其中每一项的值为对应状态下选择相应行为的回报，该回报通过动态规划计算而来。 每一回合，给定一个初始状态，从该状态开始，选择行为，转移到另一个状态，再选择行为，依次类推，直到遇到结束状态本回合结束。 每次选择行为时，该算法会根据给定的一个概率$\varepsilon$,随机选择行为或选择未来回报最大的行为。 选择行为以后，会根据">
@@ -205,7 +205,7 @@
 $$ Q(s, a) \leftarrow Q(s, a) + \alpha [r + \gamma \displaystyle  \max_{{a}'}Q({s}', {a}') - Q(s, a)] $$
 <p>其中：</p>
 <ul>
-<li>$Q(s, a)$为状态为$s$，选择行为$a$是的回报值；</li>
+<li>$Q(s, a)$为状态$s$行为$a$的回报值；</li>
 <li>$\alpha$为learning rate；</li>
 <li>$r + \gamma \displaystyle  \max_{{a}'}Q({s}', {a}')$为实际回报；</li>
 <li>$Q(s, a)$为预测回报；</li>

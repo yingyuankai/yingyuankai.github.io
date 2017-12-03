@@ -223,7 +223,7 @@
 $$ Q(s, a) \leftarrow Q(s, a) + \alpha [r + \gamma \displaystyle  \max_{{a}'}Q({s}', {a}') - Q(s, a)] $$
 <p>其中：</p>
 <ul>
-<li>$Q(s, a)$为状态为$s$，选择行为$a$是的回报值；</li>
+<li>$Q(s, a)$为状态$s$行为$a$的回报值；</li>
 <li>$\alpha$为learning rate；</li>
 <li>$r + \gamma \displaystyle  \max_{{a}'}Q({s}', {a}')$为实际回报；</li>
 <li>$Q(s, a)$为预测回报；</li>
