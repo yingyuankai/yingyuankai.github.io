@@ -188,6 +188,56 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-sarsa"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/12/06/sarsa/">sarsa</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/12/06/sarsa/" class="article-date">
+	  <time datetime="2017-12-06T14:42:44.000Z" itemprop="datePublished">2017-12-06</time>
+	</a>
+
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+<h1 id="Sarsa"><a href="#Sarsa" class="headerlink" title="Sarsa"></a>Sarsa</h1><p>Sarsa与Q-Learning类似，都是通过构建一个Q表来记录agent每个状态下采取相应动作的回报，其不同处如下：<br>
+1、Q-Learning $$\max_{{a}'}Q({s}', {a}')$$变成Sarsa的$$Q({s}', {a}')$$
+2、Q-Learning在每一步确定下一步的状态，Q-Learning中agent下一步可能选择的不是${a}'$，而Sarsa同时确定了下一步的状态和行为。
+</p>
+<p>总的来说，Q-Learning表现的更加激进，总是贪心地选择最大回报的那个行为，但并不一定说到做到，而Sarsa则更为保守，学着自己在做的事情。</p>
+<p><img src="https://morvanzhou.github.io/static/results/ML-intro/s4.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-Q-Learning"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
