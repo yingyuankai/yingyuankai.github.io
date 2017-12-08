@@ -222,7 +222,22 @@
 </p>
 <p>总的来说，Q-Learning表现的更加激进，总是贪心地选择最大回报的那个行为，但并不一定说到做到，而Sarsa则更为保守，学着自己在做的事情。</p>
 <p><img src="https://morvanzhou.github.io/static/results/ML-intro/s4.png" alt=""></p>
-<p><a href="https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow/tree/master/contents/2_Q_Learning_maze" target="_blank" rel="external">2_Q_Learning_maze</a></p>
+<p><a href="https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow/tree/master/contents/3_Sarsa_maze" target="_blank" rel="external">github: Sarsa maze</a></p>
+<h1 id="Sarsa-lambda"><a href="#Sarsa-lambda" class="headerlink" title="Sarsa-lambda"></a>Sarsa-lambda</h1><p>Sarsa-lambda 是基于 Sarsa 方法的升级版, 他能更有效率地学习到怎么样获得好的 reward. 如果说 Sarsa 和 Qlearning 都是每次获取到 reward, 只更新获取到 reward 的前一步. 那 Sarsa-lambda 就是更新获取到 reward 的前 lambda 步. lambda 是在 [0, 1] 之间取值,</p>
+<p>如果 lambda = 0, Sarsa-lambda 就是 Sarsa, 只更新获取到 reward 前经历的最后一步。</p>
+<p>如果 lambda = 1, Sarsa-lambda 更新的是获取到 reward 前所有经历的步。</p>
+<p><img src="https://morvanzhou.github.io/static/results/reinforcement-learning/3-3-1.png" alt=""></p>
+<p>$E(s, a)$表示在状态$s$采取行动$a$的重要程度，该值会随着时间慢慢变小，其更新方式如下图。</p>
+<p>第一行为$(s, a)$的发生时间；</p>
+<p>接下来两行为$E(s, a)$的两种更新方式：</p>
+<ul>
+<li><p>累加方式(accurmulating trace)：在原先值上累加1</p>
+</li>
+<li><p>替代方式(replacing trace)：直接替换为1</p>
+</li>
+</ul>
+<p><img src="https://morvanzhou.github.io/static/results/reinforcement-learning/3-3-2.png" alt=""></p>
+<p><a href="https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow/tree/master/contents/4_Sarsa_lambda_maze" target="_blank" rel="external">github: Sarsa lambda maze</a></p>
 
       
     </div>
@@ -281,6 +296,7 @@ $$ Q(s, a) \leftarrow Q(s, a) + \alpha [r + \gamma \displaystyle  \max_{{a}'}Q({
 <li>$Q(s, a)$为预测回报；</li>
 </ul>
 <p><img src="https://morvanzhou.github.io/static/results/reinforcement-learning/2-1-1.png" alt=""></p>
+<p><a href="https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow/tree/master/contents/2_Q_Learning_maze" target="_blank" rel="external">github: Q Learning maze</a></p>
 
       
     </div>
@@ -345,7 +361,7 @@ $$ Q(s, a) \leftarrow Q(s, a) + \alpha [r + \gamma \displaystyle  \max_{{a}'}Q({
 <li>基础版 policy gradients</li>
 <li>Monte-Carlo Learning</li>
 </ul>
-<h3 id="Temporal-Difference-update"><a href="#Temporal-Difference-update" class="headerlink" title="Temporal-Difference update"></a>Temporal-Difference update</h3><p>游戏开始-&gt;更新-&gt;更新-&gt;…-&gt;游戏结束<br>每一步都会更新，边玩边更新，更有效率，大部分增强学习算法都是单步更新方法</p>
+<h3 id="Temporal-Difference-update-单步更新"><a href="#Temporal-Difference-update-单步更新" class="headerlink" title="Temporal-Difference update 单步更新"></a>Temporal-Difference update 单步更新</h3><p>游戏开始-&gt;更新-&gt;更新-&gt;…-&gt;游戏结束<br>每一步都会更新，边玩边更新，更有效率，大部分增强学习算法都是单步更新方法</p>
 <ul>
 <li>Q Learning</li>
 <li>Sarsa</li>

@@ -20,7 +20,9 @@
 <meta property="og:description" content="SarsaSarsa与Q-Learning类似，都是通过构建一个Q表来记录agent每个状态下采取相应动作的回报，其不同处如下： 1、Q-Learning $$\max_{{a}&apos;}Q({s}&apos;, {a}&apos;)$$变成Sarsa的$$Q({s}&apos;, {a}&apos;)$$ 2、Q-Learning在每一步确定下一步的状态，Q-Learning中agent下一步可能选择的不是${a}&apos;$，而Sarsa同">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://morvanzhou.github.io/static/results/ML-intro/s4.png">
-<meta property="og:updated_time" content="2017-12-07T14:40:19.793Z">
+<meta property="og:image" content="https://morvanzhou.github.io/static/results/reinforcement-learning/3-3-1.png">
+<meta property="og:image" content="https://morvanzhou.github.io/static/results/reinforcement-learning/3-3-2.png">
+<meta property="og:updated_time" content="2017-12-08T14:44:16.771Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sarsa">
 <meta name="twitter:description" content="SarsaSarsa与Q-Learning类似，都是通过构建一个Q表来记录agent每个状态下采取相应动作的回报，其不同处如下： 1、Q-Learning $$\max_{{a}&apos;}Q({s}&apos;, {a}&apos;)$$变成Sarsa的$$Q({s}&apos;, {a}&apos;)$$ 2、Q-Learning在每一步确定下一步的状态，Q-Learning中agent下一步可能选择的不是${a}&apos;$，而Sarsa同">
@@ -204,7 +206,22 @@
 </p>
 <p>总的来说，Q-Learning表现的更加激进，总是贪心地选择最大回报的那个行为，但并不一定说到做到，而Sarsa则更为保守，学着自己在做的事情。</p>
 <p><img src="https://morvanzhou.github.io/static/results/ML-intro/s4.png" alt=""></p>
-<p><a href="https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow/tree/master/contents/2_Q_Learning_maze" target="_blank" rel="external">2_Q_Learning_maze</a></p>
+<p><a href="https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow/tree/master/contents/3_Sarsa_maze" target="_blank" rel="external">github: Sarsa maze</a></p>
+<h1 id="Sarsa-lambda"><a href="#Sarsa-lambda" class="headerlink" title="Sarsa-lambda"></a>Sarsa-lambda</h1><p>Sarsa-lambda 是基于 Sarsa 方法的升级版, 他能更有效率地学习到怎么样获得好的 reward. 如果说 Sarsa 和 Qlearning 都是每次获取到 reward, 只更新获取到 reward 的前一步. 那 Sarsa-lambda 就是更新获取到 reward 的前 lambda 步. lambda 是在 [0, 1] 之间取值,</p>
+<p>如果 lambda = 0, Sarsa-lambda 就是 Sarsa, 只更新获取到 reward 前经历的最后一步。</p>
+<p>如果 lambda = 1, Sarsa-lambda 更新的是获取到 reward 前所有经历的步。</p>
+<p><img src="https://morvanzhou.github.io/static/results/reinforcement-learning/3-3-1.png" alt=""></p>
+<p>$E(s, a)$表示在状态$s$采取行动$a$的重要程度，该值会随着时间慢慢变小，其更新方式如下图。</p>
+<p>第一行为$(s, a)$的发生时间；</p>
+<p>接下来两行为$E(s, a)$的两种更新方式：</p>
+<ul>
+<li><p>累加方式(accurmulating trace)：在原先值上累加1</p>
+</li>
+<li><p>替代方式(replacing trace)：直接替换为1</p>
+</li>
+</ul>
+<p><img src="https://morvanzhou.github.io/static/results/reinforcement-learning/3-3-2.png" alt=""></p>
+<p><a href="https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow/tree/master/contents/4_Sarsa_lambda_maze" target="_blank" rel="external">github: Sarsa lambda maze</a></p>
 
       
     </div>
@@ -275,7 +292,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Sarsa"><span class="nav-number">1.</span> <span class="nav-text">Sarsa</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Sarsa"><span class="nav-number">1.</span> <span class="nav-text">Sarsa</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sarsa-lambda"><span class="nav-number">2.</span> <span class="nav-text">Sarsa-lambda</span></a></li></ol>
     
     </div>
   </aside>
