@@ -188,6 +188,66 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-PolicyGradients"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/12/14/PolicyGradients/">Policy Gradients</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/12/14/PolicyGradients/" class="article-date">
+	  <time datetime="2017-12-14T14:01:29.000Z" itemprop="datePublished">2017-12-14</time>
+	</a>
+
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Policy-Gradients"><a href="#Policy-Gradients" class="headerlink" title="Policy Gradients"></a>Policy Gradients</h1><p>增强学习可分为Value-Based、Policy-Based以及二者结合的Actor-Critic。Value-Based的增强学习的策略（比如$\varepsilon-greedy$）是不变的，即在某个状态，选择哪种行动是确定的。Policy-Based的增强学习会学习在某个状态下采取不同行为的概率，这个概率会不断地调整。</p>
+<ol>
+<li><p>Policy-Based优点</p>
+<ul>
+<li>在高维空间或连续的行为空间高效</li>
+<li>能学习随机策略</li>
+</ul>
+</li>
+<li><p>Policy-Based缺点</p>
+<ul>
+<li>通常收敛到局部最优而非全局最优</li>
+<li>评估一个策略通常低效，而且方差高</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://morvanzhou.github.io/static/results/reinforcement-learning/5-1-1.png" alt=""></p>
+<p>其中</p>
+<p><a href="https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow/tree/master/contents/7_Policy_gradient_softmax" target="_blank" rel="external">github: Policy Gradients Softmax</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-Sarsa"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     

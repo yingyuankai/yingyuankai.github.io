@@ -3,19 +3,28 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>archives: 2017/11 | 莫名的blog</title>
+  <title>policy gradients | 莫名的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
+  <meta name="keywords" content="Reinforcement Learning" />
   
   
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="莫名的blog">
-<meta property="og:url" content="http://yoursite.com/archives/2017/11/index.html">
+  
+  <meta name="description" content="Policy Gradients增强学习可分为Value-Based、Policy-Based以及二者结合的Actor-Critic。Value-Based的增强学习的策略（比如$\varepsilon-greedy$）是不变的，即在某个状态，选择哪种行动是确定的。Policy-Based的增强学习会学习在某个状态下采取不同行为的概率，这个概率会不断地调整。  Policy-Based优点  在高">
+<meta name="keywords" content="Reinforcement Learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Policy Gradients">
+<meta property="og:url" content="http://yoursite.com/2017/12/14/PolicyGradients/index.html">
 <meta property="og:site_name" content="莫名的blog">
+<meta property="og:description" content="Policy Gradients增强学习可分为Value-Based、Policy-Based以及二者结合的Actor-Critic。Value-Based的增强学习的策略（比如$\varepsilon-greedy$）是不变的，即在某个状态，选择哪种行动是确定的。Policy-Based的增强学习会学习在某个状态下采取不同行为的概率，这个概率会不断地调整。  Policy-Based优点  在高">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://morvanzhou.github.io/static/results/reinforcement-learning/5-1-1.png">
+<meta property="og:updated_time" content="2017-12-14T14:31:49.589Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="莫名的blog">
+<meta name="twitter:title" content="Policy Gradients">
+<meta name="twitter:description" content="Policy Gradients增强学习可分为Value-Based、Policy-Based以及二者结合的Actor-Critic。Value-Based的增强学习的策略（比如$\varepsilon-greedy$）是不变的，即在某个状态，选择哪种行动是确定的。Policy-Based的增强学习会学习在某个状态下采取不同行为的概率，这个概率会不断地调整。  Policy-Based优点  在高">
+<meta name="twitter:image" content="https://morvanzhou.github.io/static/results/reinforcement-learning/5-1-1.png">
   
     <link rel="alternate" href="/atom.xml" title="莫名的blog" type="application/atom+xml">
   
@@ -54,8 +63,6 @@
   
 
   
-    <link rel="stylesheet" href="/css/archive.css" >
-  
   
   
     <link rel="stylesheet" href="/css/vdonate.css" ><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -65,7 +72,7 @@
 
 
 
-  <body>
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
 
 
   
@@ -88,7 +95,7 @@
             
               <a class="brand" style="
                  margin-top: 0px;"  
-                 >
+                href="#" data-toggle="modal" data-target="#myModal" >
                   <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
               </a>
             
@@ -157,161 +164,130 @@
             
       <div id="content" class="outer">
         
-          <section id="main">
-  <div class="archives-tags-wrap"><blockquote><span>There are 5 posts in total till now.</span></blockquote>
-
-
-<!-- 分页显示 -->
-
-	
-	
-		
-		
-		  
-		  
-		  <section class="archives-wrap">
-		    <div class="archive-year-wrap">
-		      <h1><a href="/archives/2017" class="archive-year">2017</a></h1>
-		    </div>
-		    <div class="archives">
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2017/11/06/MemNN/" class="archive-article-date">
-	  <time datetime="2017-11-06T15:29:04.000Z" itemprop="datePublished">2017-11-06</time>
-	</a>
-
-      
+          <section id="main" style="float:none;"><article id="post-PolicyGradients" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2017/11/06/MemNN/">Memory network (MemNN) &amp; End to End memory network (MemN2N) &amp; Dynamic memory network</a>
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Policy Gradients
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/12/14/PolicyGradients/" class="article-date">
+	  <time datetime="2017-12-14T14:01:29.000Z" itemprop="datePublished">2017-12-14</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Policy-Gradients"><a href="#Policy-Gradients" class="headerlink" title="Policy Gradients"></a>Policy Gradients</h1><p>增强学习可分为Value-Based、Policy-Based以及二者结合的Actor-Critic。Value-Based的增强学习的策略（比如$\varepsilon-greedy$）是不变的，即在某个状态，选择哪种行动是确定的。Policy-Based的增强学习会学习在某个状态下采取不同行为的概率，这个概率会不断地调整。</p>
+<ol>
+<li><p>Policy-Based优点</p>
+<ul>
+<li>在高维空间或连续的行为空间高效</li>
+<li>能学习随机策略</li>
+</ul>
+</li>
+<li><p>Policy-Based缺点</p>
+<ul>
+<li>通常收敛到局部最优而非全局最优</li>
+<li>评估一个策略通常低效，而且方差高</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://morvanzhou.github.io/static/results/reinforcement-learning/5-1-1.png" alt=""></p>
+<p>其中</p>
+<p><a href="https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow/tree/master/contents/7_Policy_gradient_softmax" target="_blank" rel="external">github: Policy Gradients Softmax</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://raw.githubusercontent.com/yingyuankai/yingyuankai.github.io/master/css/images/WechatQR.jpg',
+  alipayImage: 'https://mobilecodec.alipay.com/show.htm?code=a6x03642bzrgwdki1eb2g22&picSize=L'
+});
+</script>
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/12/06/Sarsa/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Sarsa</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-	
-	
-		</div></section>
-	
 
-	<!-- 页数指示器 -->
-	
+<!-- Table of Contents -->
 
-
-
-
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Policy-Gradients"><span class="nav-number">1.</span> <span class="nav-text">Policy Gradients</span></a></li></ol>
+    
+    </div>
+  </aside>
 </section>
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Connect</h3>
-    <div class="widget widget_athemes_social_icons">
-
-    	<ul class="clearfix widget-social-icons">   
-    	
-          
-     			  <li><a href="https://github.com/yingyuankai" title="Github"><i class="fa fa-github" aria-hidden="true"></i></a></li> 
-          
-   		
-          
-            <li><a href="mailto:yingyuankai@aliyun.com?subject=请联系我&body=我能帮你什么" title="email"><i class="fa fa-envelope" aria-hidden="true"></i></a></li> 
-          
-   		
-   		</ul>
-
-
-   		<!--
-   		<ul class="clearfix widget-social-icons">   		
-   		<li class="widget-si-twitter"><a href="http://twitter.com" title="Twitter"><i class="ico-twitter"></i></a></li> 
-		<li class="widget-si-facebook"><a href="http://facebook.com" title="Facebook"><i class="ico-facebook"></i></a></li>
-			<li class="widget-si-gplus"><a href="http://plus.google.com" title="Google+"><i class="ico-gplus"></i></a></li>
-			<li class="widget-si-pinterest"><a href="http://pinterest.com" title="Pinterest"><i class="ico-pinterest"></i></a></li>
-			<li class="widget-si-flickr"><a href="http://flickr.com" title="Flickr"><i class="ico-flickr"></i></a></li>
-			<li class="widget-si-instagram"><a href="http://instagram.com" title="Instagram"><i class="ico-instagram"></i></a></li>
-		</ul> -->
-
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a><span class="category-list-count">2</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/RL/">RL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Reingorcement-Learning/">Reingorcement Learning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deep-learning/">deep learning</a><span class="tag-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/RL/" style="font-size: 10px;">RL</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 20px;">Reinforcement Learning</a> <a href="/tags/Reingorcement-Learning/" style="font-size: 10px;">Reingorcement Learning</a> <a href="/tags/deep-learning/" style="font-size: 10px;">deep learning</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2017/12/14/PolicyGradients/">Policy Gradients</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/06/Sarsa/">Sarsa</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/03/Q-Learning/">Q Learning</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/02/RLClassfication/">RLClassfication</a>
-          </li>
-        
-          <li>
-            <a href="/2017/11/06/MemNN/">Memory network (MemNN) &amp; End to End memory network (MemN2N) &amp; Dynamic memory network</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
         
       </div>
       
@@ -407,6 +383,8 @@
 
 
 
+  <script src="/js/dialog.js"></script>
+
 
 
 
@@ -490,6 +468,8 @@
   
   <a id="rocket" href="#top" class=""></a>
   <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
   
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
