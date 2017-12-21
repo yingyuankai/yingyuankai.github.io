@@ -188,6 +188,66 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-ActorCritic"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/12/21/ActorCritic/">Actor Critic</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/12/21/ActorCritic/" class="article-date">
+	  <time datetime="2017-12-21T14:26:06.000Z" itemprop="datePublished">2017-12-21</time>
+	</a>
+
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Actor-Critic"><a href="#Actor-Critic" class="headerlink" title="Actor Critic"></a>Actor Critic</h1><p>Actor的Policy Gradients,能够在连续动作中基于概率选择合适的动作；Critic基于Value-Based,能够进行单步更新，相对回合更新的PG,提高了学习效率。</p>
+<p>Critic 基于 Actor 的行为评判行为的得分, Actor 根据 Critic 的评分修改选行为的概率.</p>
+<p>优势：单步更新，较传统PG更高的学习效率；<br>劣势：难收敛</p>
+<p><img src="https://morvanzhou.github.io/static/results/reinforcement-learning/6-1-1.png" alt=""></p>
+<p><a href="https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow/blob/master/contents/8_Actor_Critic_Advantage/AC_CartPole.py" target="_blank" rel="external">github: Actor Critic Advantage</a></p>
+<h1 id="Deep-Deterministic-Policy-Gradient-DDPG"><a href="#Deep-Deterministic-Policy-Gradient-DDPG" class="headerlink" title="Deep Deterministic Policy Gradient (DDPG)"></a>Deep Deterministic Policy Gradient (DDPG)</h1><p>Actor Critic的改进，结合了DQN，并且在输出动作时只输出一个动作值，而不是概率分布，更高的稳定性、收敛性。</p>
+<p><img src="https://morvanzhou.github.io/static/results/ML-intro/ddpg4.png" alt=""><br>为了体现 DQN 的思想, 每种神经网络我们都需要再细分为两个, Policy Gradient 这边, 我们有估计网络和现实网络, 估计网络用来输出实时的动作, 供 actor 在现实中实行. 而现实网络则是用来更新价值网络系统的. 所以我们再来看看价值系统这边, 我们也有现实网络和估计网络, 他们都在输出这个状态的价值, 而输入端却有不同, 状态现实网络这边会拿着从动作现实网络来的动作加上状态的观测值加以分析, 而状态估计网络则是拿着当时 Actor 施加的动作当做输入。</p>
+<p><img src="http://img.blog.csdn.net/20170314224654430?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2hlbnNoaWtleG11/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p><a href="https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow/blob/master/contents/9_Deep_Deterministic_Policy_Gradient_DDPG/DDPG_update.py" target="_blank" rel="external">github: DDPG update</a></p>
+<h1 id="Asynchronous-Advantage-Actor-Critic-A3C"><a href="#Asynchronous-Advantage-Actor-Critic-A3C" class="headerlink" title="Asynchronous Advantage Actor-Critic (A3C)"></a>Asynchronous Advantage Actor-Critic (A3C)</h1><p>Google DeepMind 提出的一种解决 Actor-Critic 不收敛问题的算法. 它会创建多个并行的环境, 让多个拥有副结构的 agent 同时在这些并行环境上更新主结构中的参数. 并行中的 agent 们互不干扰, 而主结构的参数更新受到副结构提交更新的不连续性干扰, 所以更新的相关性被降低, 收敛性提高.</p>
+<p><img src="https://morvanzhou.github.io/static/results/reinforcement-learning/6-3-1.png" alt=""></p>
+<p><a href="https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow/blob/master/contents/10_A3C/A3C_continuous_action.py" target="_blank" rel="external">github: A3C continuous action</a></p>
+<h1 id="Proximal-Policy-Optimization-PPO"><a href="#Proximal-Policy-Optimization-PPO" class="headerlink" title="Proximal Policy Optimization (PPO)"></a>Proximal Policy Optimization (PPO)</h1><p>OpenAI 提出的一种解决 Policy Gradient 不好确定 Learning rate (或者 Step size) 的问题。 因为如果 step size 过大, 学出来的 Policy 会一直乱动, 不会收敛, 但如果 Step Size 太小, 对于完成训练, 我们会等到绝望. PPO 利用 New Policy 和 Old Policy 的比例, 限制了 New Policy 的更新幅度, 让 Policy Gradient 对稍微大点的 Step size 不那么敏感。</p>
+<p><img src="https://morvanzhou.github.io/static/results/reinforcement-learning/6-4-2.png" alt=""></p>
+<p>总的来说 PPO 是一套 Actor-Critic 结构, Actor 想最大化 J_PPO, Critic 想最小化 L_BL。 Critic 的 loss 好说, 就是减小 TD error。 而 Actor 的就是在 old Policy 上根据 Advantage (TD error) 修改 new Policy, advantage 大的时候, 修改幅度大, 让 new Policy 更可能发生. 而且他们附加了一个 KL Penalty (惩罚项, 不懂的同学搜一下 KL divergence), 简单来说, 如果 new Policy 和 old Policy 差太多, 那 KL divergence 也越大, 我们不希望 new Policy 比 old Policy 差太多, 如果会差太多, 就相当于用了一个大的 Learning rate, 这样是不好的, 难收敛。</p>
+<p><a href="https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow/blob/master/contents/12_Proximal_Policy_Optimization/simply_PPO.py" target="_blank" rel="external">github: simply PPO</a></p>
+<h1 id="Distributed-Proximal-Policy-Optimization-DPPO"><a href="#Distributed-Proximal-Policy-Optimization-DPPO" class="headerlink" title="Distributed Proximal Policy Optimization (DPPO)"></a>Distributed Proximal Policy Optimization (DPPO)</h1><p>与A3C类似并行PPO。</p>
+<p><a href="https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow/blob/master/contents/12_Proximal_Policy_Optimization/DPPO.py" target="_blank" rel="external">github: DPPO</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-PolicyGradients"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
